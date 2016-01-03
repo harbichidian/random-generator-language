@@ -30,14 +30,14 @@ _Title cased words and phrases in this document refer to technical terms defined
 **String**
 > A String is a series of text characters surrounded by single or double quotation marks. There is no difference between the two. Strings can contain a few, simple **escape sequences**:
 >
-> - `\\'` and `\\"` insert the quotation mark without allowing it to start or end the surrounding of a String. For example, `""foo""` would result in an error, but `"\\"foo\\""` is a String containing the text `"foo"`.
-> - `\\@` inserts an at-sign without interpolating the Variable. For example, `"foo = @foo"` is a String containing `foo = ` and the value of `@foo`, but `"foo = \\@foo"` is a String containing the text `foo = @foo`.
+> - `\'` and `\"` insert the quotation mark without allowing it to start or end the surrounding of a String. For example, `""foo""` would result in an error, but `"\"foo\""` is a String containing the text `"foo"`.
+> - `\@` inserts an at-sign without interpolating the Variable. For example, `"foo = @foo"` is a String containing `foo = ` and the value of `@foo`, but `"foo = \@foo"` is a String containing the text `foo = @foo`.
 
 **Set**
 > Sets are a collection of Literals. In other computer languages, Sets would either be known as arrays, sets, or unordered lists. Sets in RGL can be created by surrounding the whole collection of Literals with square brackets ("[" and "]") and separating each Literal with a comma (",").
 
 **Multiplier**
-> Items in a Set can be preceeded by a Multiplier, an object unique to RGL. Before each Literal in a Set you can add a number, zero or more spaces, an asterisk ("\*"), and zero or more spaces. This tells the parser to "weight" the Literal a given number of times when choosing a Literal from this Set. For example, in the Set `["foo", "bar"]` "foo" is equally as likely to be chosen as "bar", but in the Set `[3\* "foo", 1\* "bar"]` foo is three times more likely to be chosen.
+> Items in a Set can be preceeded by a Multiplier, an object unique to RGL. Before each Literal in a Set you can add a number, zero or more spaces, an asterisk ("\*"), and zero or more spaces. This tells the parser to "weight" the Literal a given number of times when choosing a Literal from this Set. For example, in the Set `["foo", "bar"]` "foo" is equally as likely to be chosen as "bar", but in the Set `[3* "foo", 1* "bar"]` foo is three times more likely to be chosen.
 >
 > All Literals in a Set will have a Multiplier of 1 unless they are specifically defined, so you only have to write `[3\* "foo", "bar"]`.
 
