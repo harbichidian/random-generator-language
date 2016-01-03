@@ -18,40 +18,40 @@ RGL takes significant cues from YAML, Markdown, Liquid, Mustache, Ruby, and Coff
 
 _Title cased words and phrases in this document refer to technical terms defined here. For example, a "foo" is some nonsensical word, but a "Foo" is an object with a specific definition._
 
-Generator
-: A Generator is the object resulting from parsing an RGL-formatted file. Generally, it can also refer to the file itself, as in "run this Generator to create your own countries".
+**Generator**
+> A Generator is the object resulting from parsing an RGL-formatted file. Generally, it can also refer to the file itself, as in "run this Generator to create your own countries".
 
-Output
-: The Output is the text that is created when you run a Generator.
+**Output**
+> The Output is the text that is created when you run a Generator.
 
-Space Character
-: Space Characters are any whitespace character that is not a line break. Spaces and tabs, for example, are valid Space Characters.
+**Space Character**
+> Space Characters are any whitespace character that is not a line break. Spaces and tabs, for example, are valid Space Characters.
 
-String
-: A String is a series of text characters surrounded by single or double quotation marks. There is no difference between the two. Strings can contain a few, simple **escape sequences**:
-:
-: - `\\'` and `\\"` insert the quotation mark without allowing it to start or end the surrounding of a String. For example, `""foo""` would result in an error, but `"\\"foo\\""` is a String containing the text `"foo"`.
-: - `\\@` inserts an at-sign without interpolating the Variable. For example, `"foo = @foo"` is a String containing `foo = ` and the value of `@foo`, but `"foo = \\@foo"` is a String containing the text `foo = @foo`.
+**String**
+> A String is a series of text characters surrounded by single or double quotation marks. There is no difference between the two. Strings can contain a few, simple **escape sequences**:
+>
+> - `\\'` and `\\"` insert the quotation mark without allowing it to start or end the surrounding of a String. For example, `""foo""` would result in an error, but `"\\"foo\\""` is a String containing the text `"foo"`.
+> - `\\@` inserts an at-sign without interpolating the Variable. For example, `"foo = @foo"` is a String containing `foo = ` and the value of `@foo`, but `"foo = \\@foo"` is a String containing the text `foo = @foo`.
 
-Set
-: Sets are a collection of Literals. In other computer languages, Sets would either be known as arrays, sets, or unordered lists. Sets in RGL can be created by surrounding the whole collection of Literals with square brackets ("[" and "]") and separating each Literal with a comma (",").
+**Set**
+> Sets are a collection of Literals. In other computer languages, Sets would either be known as arrays, sets, or unordered lists. Sets in RGL can be created by surrounding the whole collection of Literals with square brackets ("[" and "]") and separating each Literal with a comma (",").
 
-Multiplier
-: Items in a Set can be preceeded by a Multiplier, an object unique to RGL. Before each Literal in a Set you can add a number, zero or more spaces, an asterisk ("\*"), and zero or more spaces. This tells the parser to "weight" the Literal a given number of times when choosing a Literal from this Set. For example, in the Set `["foo", "bar"]` "foo" is equally as likely to be chosen as "bar", but in the Set `[3\* "foo", 1\* "bar"]` foo is three times more likely to be chosen.
-:
-: All Literals in a Set will have a Multiplier of 1 unless they are specifically defined, so you only have to write `[3\* "foo", "bar"]`.
+**Multiplier**
+> Items in a Set can be preceeded by a Multiplier, an object unique to RGL. Before each Literal in a Set you can add a number, zero or more spaces, an asterisk ("\*"), and zero or more spaces. This tells the parser to "weight" the Literal a given number of times when choosing a Literal from this Set. For example, in the Set `["foo", "bar"]` "foo" is equally as likely to be chosen as "bar", but in the Set `[3\* "foo", 1\* "bar"]` foo is three times more likely to be chosen.
+>
+> All Literals in a Set will have a Multiplier of 1 unless they are specifically defined, so you only have to write `[3\* "foo", "bar"]`.
 
-Literal
-: A Literal is a generic, umbrella term for a String, Set, or Variable.
+**Literal**
+> A Literal is a generic, umbrella term for a String, Set, or Variable.
 
-Variable
-: A Variable is a symbolic name which refers to another value. Variables in RGL consist of an at-sign ("@") and one or more alphanumeric characters. Variables may not start with a number.
-:
-: Their values can be _assigned_ using the equals sign ("="). For example, `@foo = "str"` would set the `@foo` Variable's value to the String `str`.
-:
-: Their values can be _recalled_ by entering the name of the Variable. For example, `@bar = @foo` would set the `@bar` Variable's value to the value of the `@foo` Variable.
-:
-: The **Output Variable** is a special Variable that _must be present_ in every Generator. It _must be called "@output"_, and is the Variable the RGL parser will use to determine the Output of the Generator.
+**Variable**
+> A Variable is a symbolic name which refers to another value. Variables in RGL consist of an at-sign ("@") and one or more alphanumeric characters. Variables may not start with a number.
+>
+> Their values can be _assigned_ using the equals sign ("="). For example, `@foo = "str"` would set the `@foo` Variable's value to the String `str`.
+>
+> Their values can be _recalled_ by entering the name of the Variable. For example, `@bar = @foo` would set the `@bar` Variable's value to the value of the `@foo` Variable.
+>
+> The **Output Variable** is a special Variable that _must be present_ in every Generator. It _must be called "@output"_, and is the Variable the RGL parser will use to determine the Output of the Generator.
 
 ## Interpolation in Strings
 
